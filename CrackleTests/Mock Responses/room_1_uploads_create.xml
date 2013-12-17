@@ -1,0 +1,10 @@
+<upload>
+    <byte-size type="integer">8922</byte-size>
+    <content-type>image/jpeg</content-type>
+    <created-at type="datetime">2009-11-20T23:26:51Z</created-at>
+    <id type="integer">1</id>
+    <name>me.jpg</name>
+    <room-id type="integer">1</room-id>
+    <user-id type="integer">1</user-id>
+    <full-url>https://account.campfirenow.com/room/1/uploads/1/me.jpg</full-url>
+</upload>

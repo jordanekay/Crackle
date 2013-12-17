@@ -1,0 +1,12 @@
+<rooms type="array">
+    <room>
+        <id type="integer">1</id>
+        <name>North May St.</name>
+        <topic>37signals HQ</topic>
+        <membership-limit type="integer">60</membership-limit>
+        <full type="boolean">false</full>
+        <open-to-guests type="boolean">true</open-to-guests>
+        <updated-at type="datetime">2009-11-17T19:41:38Z</updated-at>
+        <created-at type="datetime">2009-11-17T19:41:38Z</created-at>
+    </room>
+</rooms>

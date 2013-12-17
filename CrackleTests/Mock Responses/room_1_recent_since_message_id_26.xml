@@ -1,0 +1,13 @@
+<messages type="array">
+    <message>
+        <created-at type="datetime">2010-04-15T11:07:08Z</created-at>
+        <id type="integer">27</id>
+        <room-id type="integer">1</room-id>
+        <user-id type="integer">1</user-id>
+        <body>trombone</body>
+        <type>SoundMessage</type>
+        <description>plays a sad trombone</description>
+        <url>https://123.campfirenow.com/sounds/trombone.mp3</url>
+        <starred>true</starred>
+    </message>
+</messages>

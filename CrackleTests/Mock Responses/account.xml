@@ -1,0 +1,11 @@
+<account>
+    <id type="integer">1</id>
+    <name>Your Company</name>
+    <subdomain>yourco</subdomain>
+    <plan>premium</plan>
+    <owner-id type="integer">1</owner-id>
+    <time-zone>America/Chicago</time-zone>
+    <storage type="integer">17374444</storage>
+    <created-at type="datetime">2011-01-12T15:00:00Z</created-at>
+    <updated-at type="datetime">2011-01-12T15:00:00Z</updated-at>
+</account>

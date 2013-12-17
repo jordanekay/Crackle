@@ -1,0 +1,22 @@
+<room>
+    <created-at type="datetime">2009-11-17T19:41:38Z</created-at>
+    <id type="integer">1</id>
+    <membership-limit type="integer">60</membership-limit>
+    <name>North May St.</name>
+    <topic>37signals HQ</topic>
+    <updated-at type="datetime">2009-11-17T19:41:38Z</updated-at>
+    <open-to-guests type="boolean">true</open-to-guests>
+    <full type="boolean">false</full>
+    <active-token-value>4c8fb</active-token-value>
+    <users type="array">
+        <user>
+            <admin type="boolean">true</admin>
+            <created-at type="datetime">2009-11-20T16:41:39Z</created-at>
+            <email-address>jason@37signals.com</email-address>
+            <id type="integer">1</id>
+            <name>Jason Fried</name>
+            <type>Member</type>
+            <avatar-url>http://asset0.37img.com/global/.../avatar.png</avatar-url>
+        </user>
+    </users>
+</room>

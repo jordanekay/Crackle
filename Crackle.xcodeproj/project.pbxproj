@@ -1,0 +1,785 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		454FBC5C18776C4000EEEB31 /* CKLMessageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 454FBC5B18776C4000EEEB31 /* CKLMessageSpec.m */; };
+		454FBC61187798EC00EEEB31 /* NSString+CKLURLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 454FBC541877500F00EEEB31 /* NSString+CKLURLExtensions.m */; };
+		458DE0A7186B6D9C00859047 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 458DE0A6186B6D9C00859047 /* libsqlite3.dylib */; };
+		458DE0AB186B714400859047 /* CKLCampfireAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0AA186B714400859047 /* CKLCampfireAPI.m */; };
+		458DE0AE186B728800859047 /* CKLCampfireAPI+Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0AD186B728800859047 /* CKLCampfireAPI+Authorization.m */; };
+		458DE0B6186BA77600859047 /* CKLCampfireAPI+Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0B5186BA77600859047 /* CKLCampfireAPI+Room.m */; };
+		458DE0BE186BEE8600859047 /* CKLCampfireAPI+Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0BD186BEE8600859047 /* CKLCampfireAPI+Account.m */; };
+		458DE0C9186C85CF00859047 /* CKLCampfireAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0C8186C85CF00859047 /* CKLCampfireAccount.m */; };
+		458DE0CE186CA29600859047 /* CKLCampfireRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0CD186CA29600859047 /* CKLCampfireRoom.m */; };
+		458DE0D7186CB4A800859047 /* CKLCampfireAPI+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0D4186CB4A800859047 /* CKLCampfireAPI+User.m */; };
+		458DE0D8186CB4A800859047 /* CKLCampfireUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0D6186CB4A800859047 /* CKLCampfireUser.m */; };
+		458DE0DC186CE3E500859047 /* CKLCampfireAPI+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0D9186CE3E500859047 /* CKLCampfireAPI+Message.m */; };
+		458DE0DD186CE3E500859047 /* CKLCampfireMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0DB186CE3E500859047 /* CKLCampfireMessage.m */; };
+		458DE0E2186D3E3C00859047 /* CKLCampfireTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0E1186D3E3C00859047 /* CKLCampfireTweet.m */; };
+		458DE0E8186D5A1400859047 /* CKLCampfireUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0E7186D5A1400859047 /* CKLCampfireUpload.m */; };
+		458DE0EB186E7D3000859047 /* CKLCampfireAPI+Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DE0EA186E7D3000859047 /* CKLCampfireAPI+Upload.m */; };
+		459D4DED1878644100C619AC /* authorization.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DE91878644100C619AC /* authorization.xml */; };
+		459D4DEE1878644100C619AC /* room_1_recent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DEA1878644100C619AC /* room_1_recent.xml */; };
+		459D4DEF1878644100C619AC /* room_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DEB1878644100C619AC /* room_1.xml */; };
+		459D4DF01878644100C619AC /* users_me.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DEC1878644100C619AC /* users_me.xml */; };
+		459D4DF21878645900C619AC /* room_1_recent_limit_3.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DF11878645900C619AC /* room_1_recent_limit_3.xml */; };
+		459D4DF4187869CD00C619AC /* room_1_recent_since_message_id_26.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DF3187869CD00C619AC /* room_1_recent_since_message_id_26.xml */; };
+		459D4DF618786B9B00C619AC /* room_1_speak.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DF518786B9B00C619AC /* room_1_speak.xml */; };
+		459D4DF818787B3D00C619AC /* CKLUserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D4DF718787B3D00C619AC /* CKLUserSpec.m */; };
+		459D4DFA1878AE3500C619AC /* users_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DF91878AE3500C619AC /* users_1.xml */; };
+		459D4DFC1878B95700C619AC /* CKLAccountSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D4DFB1878B95700C619AC /* CKLAccountSpec.m */; };
+		459D4DFE1878D7AE00C619AC /* account.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4DFD1878D7AE00C619AC /* account.xml */; };
+		459D4E001878F2FA00C619AC /* CKLUploadSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D4DFF1878F2FA00C619AC /* CKLUploadSpec.m */; };
+		459D4E031879400000C619AC /* room_1_uploads_create.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4E011879400000C619AC /* room_1_uploads_create.xml */; };
+		459D4E041879400000C619AC /* room_1_uploads.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4E021879400000C619AC /* room_1_uploads.xml */; };
+		459D4E09187944AE00C619AC /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 459D4E07187943B900C619AC /* image.png */; };
+		459D4E0B1879565400C619AC /* room_1_messages_28_upload.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4E0A1879565400C619AC /* room_1_messages_28_upload.xml */; };
+		459D4E0D1879594C00C619AC /* CKLRoomSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D4E0C1879594C00C619AC /* CKLRoomSpec.m */; };
+		459D4E121879DB7C00C619AC /* rooms.xml in Resources */ = {isa = PBXBuildFile; fileRef = 459D4E111879DB7C00C619AC /* rooms.xml */; };
+		45C4DEFC1876213E008FD4A4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DFED3E1860E02D0080BD62 /* XCTest.framework */; };
+		45C4DEFD1876213E008FD4A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DFED251860E02D0080BD62 /* Foundation.framework */; };
+		45C4DEFE1876213E008FD4A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DFED291860E02D0080BD62 /* UIKit.framework */; };
+		45C4DF041876213E008FD4A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45C4DF021876213E008FD4A4 /* InfoPlist.strings */; };
+		45C4DF0E187622DE008FD4A4 /* CKLAuthorizationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C4DF0D187622DE008FD4A4 /* CKLAuthorizationSpec.m */; };
+		45C4DF11187624B8008FD4A4 /* CKLSpecHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C4DF10187624B8008FD4A4 /* CKLSpecHelpers.m */; };
+		45DFED261860E02D0080BD62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DFED251860E02D0080BD62 /* Foundation.framework */; };
+		45DFED281860E02D0080BD62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DFED271860E02D0080BD62 /* CoreGraphics.framework */; };
+		45DFED2A1860E02D0080BD62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DFED291860E02D0080BD62 /* UIKit.framework */; };
+		45DFED301860E02D0080BD62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45DFED2E1860E02D0080BD62 /* InfoPlist.strings */; };
+		45DFED321860E02D0080BD62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DFED311860E02D0080BD62 /* main.m */; };
+		45DFED361860E02D0080BD62 /* CKLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DFED351860E02D0080BD62 /* CKLAppDelegate.m */; };
+		45DFED381860E02D0080BD62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45DFED371860E02D0080BD62 /* Images.xcassets */; };
+		49396A2F3BA04EDD8D3BA2D3 /* libPods-CrackleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC60FD9545AA4C42BE8672BD /* libPods-CrackleTests.a */; };
+		84931AEDC3D143DF9B91E101 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 767145F654454247A95DE0B7 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45C4DF081876213E008FD4A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45DFED1A1860E02D0080BD62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45DFED211860E02D0080BD62;
+			remoteInfo = Crackle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		243455E54BC34AE38F39CF94 /* Pods-CrackleTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrackleTests.xcconfig"; path = "Pods/Pods-CrackleTests.xcconfig"; sourceTree = "<group>"; };
+		32D3EA270CAB4513A3293BFC /* libPods-KiwiUnitTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KiwiUnitTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		454FBC531877500F00EEEB31 /* NSString+CKLURLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CKLURLExtensions.h"; path = "Extensions/NSString+CKLURLExtensions.h"; sourceTree = "<group>"; };
+		454FBC541877500F00EEEB31 /* NSString+CKLURLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CKLURLExtensions.m"; path = "Extensions/NSString+CKLURLExtensions.m"; sourceTree = "<group>"; };
+		454FBC5B18776C4000EEEB31 /* CKLMessageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLMessageSpec.m; sourceTree = "<group>"; };
+		458DE0A6186B6D9C00859047 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		458DE0A9186B714400859047 /* CKLCampfireAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLCampfireAPI.h; path = Campfire/CKLCampfireAPI.h; sourceTree = "<group>"; };
+		458DE0AA186B714400859047 /* CKLCampfireAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLCampfireAPI.m; path = Campfire/CKLCampfireAPI.m; sourceTree = "<group>"; };
+		458DE0AD186B728800859047 /* CKLCampfireAPI+Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CKLCampfireAPI+Authorization.m"; path = "Campfire/CKLCampfireAPI+Authorization.m"; sourceTree = "<group>"; };
+		458DE0B5186BA77600859047 /* CKLCampfireAPI+Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CKLCampfireAPI+Room.m"; path = "Campfire/CKLCampfireAPI+Room.m"; sourceTree = "<group>"; };
+		458DE0BD186BEE8600859047 /* CKLCampfireAPI+Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CKLCampfireAPI+Account.m"; path = "Campfire/CKLCampfireAPI+Account.m"; sourceTree = "<group>"; };
+		458DE0C7186C85CF00859047 /* CKLCampfireAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLCampfireAccount.h; path = Campfire/CKLCampfireAccount.h; sourceTree = "<group>"; };
+		458DE0C8186C85CF00859047 /* CKLCampfireAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLCampfireAccount.m; path = Campfire/CKLCampfireAccount.m; sourceTree = "<group>"; };
+		458DE0CA186C9CF400859047 /* CKLCampfireAPI+Endpoints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CKLCampfireAPI+Endpoints.h"; path = "Campfire/CKLCampfireAPI+Endpoints.h"; sourceTree = "<group>"; };
+		458DE0CB186C9CF400859047 /* CKLCampfireAPI+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CKLCampfireAPI+Private.h"; path = "Campfire/CKLCampfireAPI+Private.h"; sourceTree = "<group>"; };
+		458DE0CC186CA29600859047 /* CKLCampfireRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLCampfireRoom.h; path = Campfire/CKLCampfireRoom.h; sourceTree = "<group>"; };
+		458DE0CD186CA29600859047 /* CKLCampfireRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLCampfireRoom.m; path = Campfire/CKLCampfireRoom.m; sourceTree = "<group>"; };
+		458DE0D4186CB4A800859047 /* CKLCampfireAPI+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CKLCampfireAPI+User.m"; path = "Campfire/CKLCampfireAPI+User.m"; sourceTree = "<group>"; };
+		458DE0D5186CB4A800859047 /* CKLCampfireUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLCampfireUser.h; path = Campfire/CKLCampfireUser.h; sourceTree = "<group>"; };
+		458DE0D6186CB4A800859047 /* CKLCampfireUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLCampfireUser.m; path = Campfire/CKLCampfireUser.m; sourceTree = "<group>"; };
+		458DE0D9186CE3E500859047 /* CKLCampfireAPI+Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CKLCampfireAPI+Message.m"; path = "Campfire/CKLCampfireAPI+Message.m"; sourceTree = "<group>"; };
+		458DE0DA186CE3E500859047 /* CKLCampfireMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLCampfireMessage.h; path = Campfire/CKLCampfireMessage.h; sourceTree = "<group>"; };
+		458DE0DB186CE3E500859047 /* CKLCampfireMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLCampfireMessage.m; path = Campfire/CKLCampfireMessage.m; sourceTree = "<group>"; };
+		458DE0E0186D3E3C00859047 /* CKLCampfireTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLCampfireTweet.h; path = Campfire/CKLCampfireTweet.h; sourceTree = "<group>"; };
+		458DE0E1186D3E3C00859047 /* CKLCampfireTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLCampfireTweet.m; path = Campfire/CKLCampfireTweet.m; sourceTree = "<group>"; };
+		458DE0E6186D5A1400859047 /* CKLCampfireUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLCampfireUpload.h; path = Campfire/CKLCampfireUpload.h; sourceTree = "<group>"; };
+		458DE0E7186D5A1400859047 /* CKLCampfireUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLCampfireUpload.m; path = Campfire/CKLCampfireUpload.m; sourceTree = "<group>"; };
+		458DE0EA186E7D3000859047 /* CKLCampfireAPI+Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CKLCampfireAPI+Upload.m"; path = "Campfire/CKLCampfireAPI+Upload.m"; sourceTree = "<group>"; };
+		459D4DE91878644100C619AC /* authorization.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = authorization.xml; path = "Mock Responses/authorization.xml"; sourceTree = "<group>"; };
+		459D4DEA1878644100C619AC /* room_1_recent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = room_1_recent.xml; path = "Mock Responses/room_1_recent.xml"; sourceTree = "<group>"; };
+		459D4DEB1878644100C619AC /* room_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = room_1.xml; path = "Mock Responses/room_1.xml"; sourceTree = "<group>"; };
+		459D4DEC1878644100C619AC /* users_me.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = users_me.xml; path = "Mock Responses/users_me.xml"; sourceTree = "<group>"; };
+		459D4DF11878645900C619AC /* room_1_recent_limit_3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = room_1_recent_limit_3.xml; path = "Mock Responses/room_1_recent_limit_3.xml"; sourceTree = "<group>"; };
+		459D4DF3187869CD00C619AC /* room_1_recent_since_message_id_26.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = room_1_recent_since_message_id_26.xml; path = "Mock Responses/room_1_recent_since_message_id_26.xml"; sourceTree = "<group>"; };
+		459D4DF518786B9B00C619AC /* room_1_speak.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = room_1_speak.xml; path = "Mock Responses/room_1_speak.xml"; sourceTree = "<group>"; };
+		459D4DF718787B3D00C619AC /* CKLUserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLUserSpec.m; sourceTree = "<group>"; };
+		459D4DF91878AE3500C619AC /* users_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = users_1.xml; path = "Mock Responses/users_1.xml"; sourceTree = "<group>"; };
+		459D4DFB1878B95700C619AC /* CKLAccountSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLAccountSpec.m; sourceTree = "<group>"; };
+		459D4DFD1878D7AE00C619AC /* account.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = account.xml; path = "Mock Responses/account.xml"; sourceTree = "<group>"; };
+		459D4DFF1878F2FA00C619AC /* CKLUploadSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLUploadSpec.m; sourceTree = "<group>"; };
+		459D4E011879400000C619AC /* room_1_uploads_create.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = room_1_uploads_create.xml; path = "Mock Responses/room_1_uploads_create.xml"; sourceTree = "<group>"; };
+		459D4E021879400000C619AC /* room_1_uploads.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = room_1_uploads.xml; path = "Mock Responses/room_1_uploads.xml"; sourceTree = "<group>"; };
+		459D4E07187943B900C619AC /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		459D4E0A1879565400C619AC /* room_1_messages_28_upload.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = room_1_messages_28_upload.xml; path = "Mock Responses/room_1_messages_28_upload.xml"; sourceTree = "<group>"; };
+		459D4E0C1879594C00C619AC /* CKLRoomSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLRoomSpec.m; sourceTree = "<group>"; };
+		459D4E111879DB7C00C619AC /* rooms.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = rooms.xml; path = "Mock Responses/rooms.xml"; sourceTree = "<group>"; };
+		45C4DEE51876209D008FD4A4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		45C4DEFB1876213E008FD4A4 /* CrackleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrackleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C4DF011876213E008FD4A4 /* CrackleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CrackleTests-Info.plist"; sourceTree = "<group>"; };
+		45C4DF031876213E008FD4A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		45C4DF071876213E008FD4A4 /* CrackleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrackleTests-Prefix.pch"; sourceTree = "<group>"; };
+		45C4DF0D187622DE008FD4A4 /* CKLAuthorizationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLAuthorizationSpec.m; sourceTree = "<group>"; };
+		45C4DF0F187624B8008FD4A4 /* CKLSpecHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLSpecHelpers.h; sourceTree = "<group>"; };
+		45C4DF10187624B8008FD4A4 /* CKLSpecHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLSpecHelpers.m; sourceTree = "<group>"; };
+		45DFED221860E02D0080BD62 /* Crackle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crackle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45DFED251860E02D0080BD62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		45DFED271860E02D0080BD62 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		45DFED291860E02D0080BD62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		45DFED2D1860E02D0080BD62 /* Crackle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Crackle-Info.plist"; sourceTree = "<group>"; };
+		45DFED2F1860E02D0080BD62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		45DFED311860E02D0080BD62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45DFED331860E02D0080BD62 /* Crackle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crackle-Prefix.pch"; sourceTree = "<group>"; };
+		45DFED341860E02D0080BD62 /* CKLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKLAppDelegate.h; sourceTree = "<group>"; };
+		45DFED351860E02D0080BD62 /* CKLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKLAppDelegate.m; sourceTree = "<group>"; };
+		45DFED371860E02D0080BD62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45DFED3E1860E02D0080BD62 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		767145F654454247A95DE0B7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2741270825C4EB5844ED52A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FC60FD9545AA4C42BE8672BD /* libPods-CrackleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrackleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45C4DEF81876213E008FD4A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45C4DEFC1876213E008FD4A4 /* XCTest.framework in Frameworks */,
+				45C4DEFE1876213E008FD4A4 /* UIKit.framework in Frameworks */,
+				45C4DEFD1876213E008FD4A4 /* Foundation.framework in Frameworks */,
+				49396A2F3BA04EDD8D3BA2D3 /* libPods-CrackleTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45DFED1F1860E02D0080BD62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				458DE0A7186B6D9C00859047 /* libsqlite3.dylib in Frameworks */,
+				45DFED281860E02D0080BD62 /* CoreGraphics.framework in Frameworks */,
+				45DFED2A1860E02D0080BD62 /* UIKit.framework in Frameworks */,
+				45DFED261860E02D0080BD62 /* Foundation.framework in Frameworks */,
+				84931AEDC3D143DF9B91E101 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		454FBC5A1877511600EEEB31 /* Mock Responses */ = {
+			isa = PBXGroup;
+			children = (
+				459D4DFD1878D7AE00C619AC /* account.xml */,
+				459D4DE91878644100C619AC /* authorization.xml */,
+				459D4DEB1878644100C619AC /* room_1.xml */,
+				459D4E0A1879565400C619AC /* room_1_messages_28_upload.xml */,
+				459D4DEA1878644100C619AC /* room_1_recent.xml */,
+				459D4DF11878645900C619AC /* room_1_recent_limit_3.xml */,
+				459D4DF3187869CD00C619AC /* room_1_recent_since_message_id_26.xml */,
+				459D4DF518786B9B00C619AC /* room_1_speak.xml */,
+				459D4E021879400000C619AC /* room_1_uploads.xml */,
+				459D4E011879400000C619AC /* room_1_uploads_create.xml */,
+				459D4E111879DB7C00C619AC /* rooms.xml */,
+				459D4DF91878AE3500C619AC /* users_1.xml */,
+				459D4DEC1878644100C619AC /* users_me.xml */,
+			);
+			name = "Mock Responses";
+			sourceTree = "<group>";
+		};
+		458DE0A8186B711D00859047 /* Campfire */ = {
+			isa = PBXGroup;
+			children = (
+				458DE0A9186B714400859047 /* CKLCampfireAPI.h */,
+				458DE0AA186B714400859047 /* CKLCampfireAPI.m */,
+				458DE0CA186C9CF400859047 /* CKLCampfireAPI+Endpoints.h */,
+				458DE0CB186C9CF400859047 /* CKLCampfireAPI+Private.h */,
+				458DE0BF186BEED500859047 /* Account */,
+				458DE0AF186B729300859047 /* Authorization */,
+				458DE0D3186CB13800859047 /* Messages */,
+				458DE0B4186BA75A00859047 /* Rooms */,
+				458DE0D2186CB11D00859047 /* Uploads */,
+				458DE0CF186CB05B00859047 /* Users */,
+			);
+			name = Campfire;
+			sourceTree = "<group>";
+		};
+		458DE0AF186B729300859047 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				458DE0AD186B728800859047 /* CKLCampfireAPI+Authorization.m */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		458DE0B0186B86FB00859047 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				454FBC531877500F00EEEB31 /* NSString+CKLURLExtensions.h */,
+				454FBC541877500F00EEEB31 /* NSString+CKLURLExtensions.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		458DE0B4186BA75A00859047 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				458DE0B5186BA77600859047 /* CKLCampfireAPI+Room.m */,
+				458DE0CC186CA29600859047 /* CKLCampfireRoom.h */,
+				458DE0CD186CA29600859047 /* CKLCampfireRoom.m */,
+			);
+			name = Rooms;
+			sourceTree = "<group>";
+		};
+		458DE0BF186BEED500859047 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				458DE0BD186BEE8600859047 /* CKLCampfireAPI+Account.m */,
+				458DE0C7186C85CF00859047 /* CKLCampfireAccount.h */,
+				458DE0C8186C85CF00859047 /* CKLCampfireAccount.m */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		458DE0CF186CB05B00859047 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				458DE0D4186CB4A800859047 /* CKLCampfireAPI+User.m */,
+				458DE0D5186CB4A800859047 /* CKLCampfireUser.h */,
+				458DE0D6186CB4A800859047 /* CKLCampfireUser.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		458DE0D2186CB11D00859047 /* Uploads */ = {
+			isa = PBXGroup;
+			children = (
+				458DE0EA186E7D3000859047 /* CKLCampfireAPI+Upload.m */,
+				458DE0E6186D5A1400859047 /* CKLCampfireUpload.h */,
+				458DE0E7186D5A1400859047 /* CKLCampfireUpload.m */,
+			);
+			name = Uploads;
+			sourceTree = "<group>";
+		};
+		458DE0D3186CB13800859047 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				458DE0D9186CE3E500859047 /* CKLCampfireAPI+Message.m */,
+				458DE0DA186CE3E500859047 /* CKLCampfireMessage.h */,
+				458DE0DB186CE3E500859047 /* CKLCampfireMessage.m */,
+				458DE0E0186D3E3C00859047 /* CKLCampfireTweet.h */,
+				458DE0E1186D3E3C00859047 /* CKLCampfireTweet.m */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		45C4DEFF1876213E008FD4A4 /* CrackleTests */ = {
+			isa = PBXGroup;
+			children = (
+				459D4DFB1878B95700C619AC /* CKLAccountSpec.m */,
+				45C4DF0D187622DE008FD4A4 /* CKLAuthorizationSpec.m */,
+				454FBC5B18776C4000EEEB31 /* CKLMessageSpec.m */,
+				459D4E0C1879594C00C619AC /* CKLRoomSpec.m */,
+				45C4DF0F187624B8008FD4A4 /* CKLSpecHelpers.h */,
+				45C4DF10187624B8008FD4A4 /* CKLSpecHelpers.m */,
+				459D4DF718787B3D00C619AC /* CKLUserSpec.m */,
+				459D4DFF1878F2FA00C619AC /* CKLUploadSpec.m */,
+				459D4E07187943B900C619AC /* image.png */,
+				454FBC5A1877511600EEEB31 /* Mock Responses */,
+				45C4DF001876213E008FD4A4 /* Supporting Files */,
+			);
+			path = CrackleTests;
+			sourceTree = "<group>";
+		};
+		45C4DF001876213E008FD4A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45C4DF011876213E008FD4A4 /* CrackleTests-Info.plist */,
+				45C4DF021876213E008FD4A4 /* InfoPlist.strings */,
+				45C4DF071876213E008FD4A4 /* CrackleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45DFED191860E02D0080BD62 = {
+			isa = PBXGroup;
+			children = (
+				45DFED2B1860E02D0080BD62 /* Example */,
+				458DE0B0186B86FB00859047 /* Extensions */,
+				458DE0A8186B711D00859047 /* Campfire */,
+				45C4DEFF1876213E008FD4A4 /* CrackleTests */,
+				45DFED241860E02D0080BD62 /* Frameworks */,
+				45DFED231860E02D0080BD62 /* Products */,
+				E2741270825C4EB5844ED52A /* Pods.xcconfig */,
+				243455E54BC34AE38F39CF94 /* Pods-CrackleTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		45DFED231860E02D0080BD62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45DFED221860E02D0080BD62 /* Crackle.app */,
+				45C4DEFB1876213E008FD4A4 /* CrackleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45DFED241860E02D0080BD62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				458DE0A6186B6D9C00859047 /* libsqlite3.dylib */,
+				45DFED251860E02D0080BD62 /* Foundation.framework */,
+				45DFED271860E02D0080BD62 /* CoreGraphics.framework */,
+				45DFED291860E02D0080BD62 /* UIKit.framework */,
+				45DFED3E1860E02D0080BD62 /* XCTest.framework */,
+				767145F654454247A95DE0B7 /* libPods.a */,
+				32D3EA270CAB4513A3293BFC /* libPods-KiwiUnitTest.a */,
+				45C4DEE51876209D008FD4A4 /* SenTestingKit.framework */,
+				FC60FD9545AA4C42BE8672BD /* libPods-CrackleTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45DFED2B1860E02D0080BD62 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				45DFED341860E02D0080BD62 /* CKLAppDelegate.h */,
+				45DFED351860E02D0080BD62 /* CKLAppDelegate.m */,
+				45DFED371860E02D0080BD62 /* Images.xcassets */,
+				45DFED2C1860E02D0080BD62 /* Supporting Files */,
+			);
+			name = Example;
+			path = Crackle;
+			sourceTree = "<group>";
+		};
+		45DFED2C1860E02D0080BD62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45DFED2D1860E02D0080BD62 /* Crackle-Info.plist */,
+				45DFED2E1860E02D0080BD62 /* InfoPlist.strings */,
+				45DFED311860E02D0080BD62 /* main.m */,
+				45DFED331860E02D0080BD62 /* Crackle-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45C4DEFA1876213E008FD4A4 /* CrackleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45C4DF0A1876213E008FD4A4 /* Build configuration list for PBXNativeTarget "CrackleTests" */;
+			buildPhases = (
+				81FA03B9AB384BBFB2B8CC1F /* Check Pods Manifest.lock */,
+				45C4DEF71876213E008FD4A4 /* Sources */,
+				45C4DEF81876213E008FD4A4 /* Frameworks */,
+				45C4DEF91876213E008FD4A4 /* Resources */,
+				BDC4BDC34A804EBD82B67445 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45C4DF091876213E008FD4A4 /* PBXTargetDependency */,
+			);
+			name = CrackleTests;
+			productName = CrackleTests;
+			productReference = 45C4DEFB1876213E008FD4A4 /* CrackleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		45DFED211860E02D0080BD62 /* Crackle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45DFED4E1860E02D0080BD62 /* Build configuration list for PBXNativeTarget "Crackle" */;
+			buildPhases = (
+				2EE8CC85C6034F82BB51F0C7 /* Check Pods Manifest.lock */,
+				45DFED1E1860E02D0080BD62 /* Sources */,
+				45DFED1F1860E02D0080BD62 /* Frameworks */,
+				45DFED201860E02D0080BD62 /* Resources */,
+				2EE9697F02594E0DAAB12D64 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Crackle;
+			productName = Crackle;
+			productReference = 45DFED221860E02D0080BD62 /* Crackle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45DFED1A1860E02D0080BD62 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CKL;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Jordan Kay";
+				TargetAttributes = {
+					45C4DEFA1876213E008FD4A4 = {
+						TestTargetID = 45DFED211860E02D0080BD62;
+					};
+				};
+			};
+			buildConfigurationList = 45DFED1D1860E02D0080BD62 /* Build configuration list for PBXProject "Crackle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 45DFED191860E02D0080BD62;
+			productRefGroup = 45DFED231860E02D0080BD62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45DFED211860E02D0080BD62 /* Crackle */,
+				45C4DEFA1876213E008FD4A4 /* CrackleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45C4DEF91876213E008FD4A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				459D4DEE1878644100C619AC /* room_1_recent.xml in Resources */,
+				459D4DFE1878D7AE00C619AC /* account.xml in Resources */,
+				459D4E121879DB7C00C619AC /* rooms.xml in Resources */,
+				459D4DFA1878AE3500C619AC /* users_1.xml in Resources */,
+				45C4DF041876213E008FD4A4 /* InfoPlist.strings in Resources */,
+				459D4DEF1878644100C619AC /* room_1.xml in Resources */,
+				459D4DF01878644100C619AC /* users_me.xml in Resources */,
+				459D4DED1878644100C619AC /* authorization.xml in Resources */,
+				459D4DF4187869CD00C619AC /* room_1_recent_since_message_id_26.xml in Resources */,
+				459D4E0B1879565400C619AC /* room_1_messages_28_upload.xml in Resources */,
+				459D4DF21878645900C619AC /* room_1_recent_limit_3.xml in Resources */,
+				459D4E041879400000C619AC /* room_1_uploads.xml in Resources */,
+				459D4DF618786B9B00C619AC /* room_1_speak.xml in Resources */,
+				459D4E031879400000C619AC /* room_1_uploads_create.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45DFED201860E02D0080BD62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45DFED301860E02D0080BD62 /* InfoPlist.strings in Resources */,
+				45DFED381860E02D0080BD62 /* Images.xcassets in Resources */,
+				459D4E09187944AE00C619AC /* image.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EE8CC85C6034F82BB51F0C7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2EE9697F02594E0DAAB12D64 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81FA03B9AB384BBFB2B8CC1F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDC4BDC34A804EBD82B67445 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-CrackleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45C4DEF71876213E008FD4A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				459D4E001878F2FA00C619AC /* CKLUploadSpec.m in Sources */,
+				459D4DF818787B3D00C619AC /* CKLUserSpec.m in Sources */,
+				459D4DFC1878B95700C619AC /* CKLAccountSpec.m in Sources */,
+				45C4DF0E187622DE008FD4A4 /* CKLAuthorizationSpec.m in Sources */,
+				45C4DF11187624B8008FD4A4 /* CKLSpecHelpers.m in Sources */,
+				454FBC5C18776C4000EEEB31 /* CKLMessageSpec.m in Sources */,
+				459D4E0D1879594C00C619AC /* CKLRoomSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45DFED1E1860E02D0080BD62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				458DE0DD186CE3E500859047 /* CKLCampfireMessage.m in Sources */,
+				458DE0E8186D5A1400859047 /* CKLCampfireUpload.m in Sources */,
+				45DFED321860E02D0080BD62 /* main.m in Sources */,
+				458DE0D7186CB4A800859047 /* CKLCampfireAPI+User.m in Sources */,
+				458DE0AB186B714400859047 /* CKLCampfireAPI.m in Sources */,
+				45DFED361860E02D0080BD62 /* CKLAppDelegate.m in Sources */,
+				454FBC61187798EC00EEEB31 /* NSString+CKLURLExtensions.m in Sources */,
+				458DE0B6186BA77600859047 /* CKLCampfireAPI+Room.m in Sources */,
+				458DE0CE186CA29600859047 /* CKLCampfireRoom.m in Sources */,
+				458DE0DC186CE3E500859047 /* CKLCampfireAPI+Message.m in Sources */,
+				458DE0AE186B728800859047 /* CKLCampfireAPI+Authorization.m in Sources */,
+				458DE0C9186C85CF00859047 /* CKLCampfireAccount.m in Sources */,
+				458DE0BE186BEE8600859047 /* CKLCampfireAPI+Account.m in Sources */,
+				458DE0EB186E7D3000859047 /* CKLCampfireAPI+Upload.m in Sources */,
+				458DE0D8186CB4A800859047 /* CKLCampfireUser.m in Sources */,
+				458DE0E2186D3E3C00859047 /* CKLCampfireTweet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45C4DF091876213E008FD4A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45DFED211860E02D0080BD62 /* Crackle */;
+			targetProxy = 45C4DF081876213E008FD4A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45C4DF021876213E008FD4A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45C4DF031876213E008FD4A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		45DFED2E1860E02D0080BD62 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45DFED2F1860E02D0080BD62 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45C4DF0B1876213E008FD4A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 243455E54BC34AE38F39CF94 /* Pods-CrackleTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Crackle.app/Crackle";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CrackleTests/CrackleTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CrackleTests/CrackleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		45C4DF0C1876213E008FD4A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 243455E54BC34AE38F39CF94 /* Pods-CrackleTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Crackle.app/Crackle";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CrackleTests/CrackleTests-Prefix.pch";
+				INFOPLIST_FILE = "CrackleTests/CrackleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		45DFED4C1860E02D0080BD62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		45DFED4D1860E02D0080BD62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45DFED4F1860E02D0080BD62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2741270825C4EB5844ED52A /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Crackle/Crackle-Prefix.pch";
+				INFOPLIST_FILE = "Crackle/Crackle-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		45DFED501860E02D0080BD62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2741270825C4EB5844ED52A /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Crackle/Crackle-Prefix.pch";
+				INFOPLIST_FILE = "Crackle/Crackle-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45C4DF0A1876213E008FD4A4 /* Build configuration list for PBXNativeTarget "CrackleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45C4DF0B1876213E008FD4A4 /* Debug */,
+				45C4DF0C1876213E008FD4A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45DFED1D1860E02D0080BD62 /* Build configuration list for PBXProject "Crackle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45DFED4C1860E02D0080BD62 /* Debug */,
+				45DFED4D1860E02D0080BD62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45DFED4E1860E02D0080BD62 /* Build configuration list for PBXNativeTarget "Crackle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45DFED4F1860E02D0080BD62 /* Debug */,
+				45DFED501860E02D0080BD62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45DFED1A1860E02D0080BD62 /* Project object */;
+}

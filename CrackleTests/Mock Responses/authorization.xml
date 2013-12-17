@@ -1,0 +1,6 @@
+<authorization expires-at="1970-01-01T00:00:00Z">
+    <identity last_name="Fried" email_address="jason@37signals.com" first_name="Jason" id="1"/>
+    <accounts>
+        <account href="https://yourco.campfirenow.com" name="Your Company" id="9999999" product="campfire"/>
+    </accounts>
+</authorization>

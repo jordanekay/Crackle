@@ -1,0 +1,36 @@
+<messages type="array">
+    <message>
+        <created-at type="datetime">2010-04-15T11:05:08Z</created-at>
+        <id type="integer">25</id>
+        <room-id type="integer">1</room-id>
+        <user-id type="integer">1</user-id>
+        <body nil="true"></body>
+        <type>EnterMessage</type>
+    </message>
+    <message>
+        <created-at type="datetime">2010-04-15T11:06:08Z</created-at>
+        <id type="integer">26</id>
+        <room-id type="integer">1</room-id>
+        <user-id type="integer">1</user-id>
+        <body>Nobody will be paying for Campfire this month. We didn't earn a dime after two outages within one week. So sorry for the disruption. -- @37signals, http://twitter.com/37signals/status/11923460649394176</body>
+        <type>TweetMessage</type>
+        <starred>false</starred>
+        <tweet>
+            <id>418146128945614848</id>
+            <message>Nobody will be paying for Campfire this month. We didn't earn a dime after two outages within one week. So sorry for the disruption.</message>
+            <author_username>37signals</author_username>
+            <author_avatar_url>https://pbs.twimg.com/profile_images/378800000671235961/eefebfe42c58c73db23d5c8698c6d6c5.png</author_avatar_url>
+        </tweet>
+    </message>
+    <message>
+        <created-at type="datetime">2010-04-15T11:07:08Z</created-at>
+        <id type="integer">27</id>
+        <room-id type="integer">1</room-id>
+        <user-id type="integer">1</user-id>
+        <body>trombone</body>
+        <type>SoundMessage</type>
+        <description>plays a sad trombone</description>
+        <url>https://123.campfirenow.com/sounds/trombone.mp3</url>
+        <starred>true</starred>
+    </message>
+</messages>
