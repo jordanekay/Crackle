@@ -105,6 +105,9 @@ Then call
 
 to display the 37signals login form in a `UIWebView`, followed by a permission screen for allowing your app to access the user’s account. Once authentication is finished, the account’s access token is stored securely in the Keychain.
 
+![Login Form](https://dl.dropboxusercontent.com/u/11479646/iOS%20Simulator%20Screen%20shot%20Jan%207%2C%202014%2C%201.26.47%20PM.png)
+![Permission Dialog](https://dl.dropboxusercontent.com/u/11479646/iOS%20Simulator%20Screen%20shot%20Jan%207%2C%202014%2C%201.26.13%20PM.png)
+
 Examples
 --------
 
