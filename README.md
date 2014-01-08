@@ -4,7 +4,7 @@ Crackle is an Objective-C wrapper around the 37signals Campfire API.
 
 Functionality
 -------------
-Crackle covers all major endpoints provided by the Campfire API.
+Crackle covers all major endpoints provided by the Campfire API, with support for multiple accounts.
 
 ### Account
 
