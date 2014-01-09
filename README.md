@@ -8,7 +8,7 @@ Crackle covers all major endpoints provided by the Campfire API, with support fo
 
 ### Account
 
-* Get info for an autharized account `GET /account.xml`
+* Get info for an authorized account `GET /account.xml`
 
 		+[CKLCampfireAPI getInfoForAccount:responseBlock:]
 
