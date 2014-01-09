@@ -191,7 +191,7 @@ describe(@"The API instance", ^{
             });
             it(@"should not become unlocked", ^{
                 [CKLCampfireAPI lockRoom:room responseBlock:^(NSError *error) {
-                  return;
+                    return;
                 }];
                 [[expectFutureValue(theValue(room.locked)) shouldEventually] equal:theValue(YES)];
             });
