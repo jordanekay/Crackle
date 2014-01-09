@@ -116,7 +116,7 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
     NSURLRequest *authRequest = [NSURLRequest requestWithURL:authURL];
 
     if (!webView.delegate) {
-        webView.delegate = [CKLCampfireAPI sharedInstance];
+        webView.delegate = [self sharedInstance];
     }
     [webView loadRequest:authRequest];
     return authRequest;

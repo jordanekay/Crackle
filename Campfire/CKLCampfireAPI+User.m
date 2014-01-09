@@ -26,8 +26,8 @@
 
 + (void)_getResource:(NSString *)resource forAccount:(CKLCampfireAuthorizedAccount *)account responseBlock:(CKLCampfireAPIUserResponseBlock)responseBlock
 {
-    [[CKLCampfireAPI sharedInstance] getResource:resource forAccount:account withParameters:nil responseBlock:^(id responseObject, NSError *error) {
-        [CKLCampfireAPI processResponseObject:responseObject ofType:[CKLCampfireUser class] error:error processBlock:nil responseBlock:responseBlock];
+    [[self sharedInstance] getResource:resource forAccount:account withParameters:nil responseBlock:^(id responseObject, NSError *error) {
+        [self processResponseObject:responseObject ofType:[CKLCampfireUser class] error:error processBlock:nil responseBlock:responseBlock];
     }];
 }
 

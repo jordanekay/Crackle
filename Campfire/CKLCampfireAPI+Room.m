@@ -72,7 +72,7 @@
 
     NSString *resource = [NSString stringWithFormat:CAMPFIRE_API_ROOM_ROOMID, room.roomID];
     NSDictionary *parameters = @{@"room": [CKLCampfireRoom editParametersForName:name topic:topic]};
-    [[CKLCampfireAPI sharedInstance] putResource:resource forAccount:room.viewingAccount withParameters:parameters responseBlock:^(id responseObject, NSError *error) {
+    [[self sharedInstance] putResource:resource forAccount:room.viewingAccount withParameters:parameters responseBlock:^(id responseObject, NSError *error) {
         if (error) {
             room.name = currentName;
             room.topic = currentTopic;
@@ -100,8 +100,8 @@
 + (void)_getRoomsForResource:(NSString *)resource multiple:(BOOL)multiple account:(CKLCampfireAuthorizedAccount *)account responseBlock:(CKLCampfireAPIResponseBlock)responseBlock
 
 {
-    [[CKLCampfireAPI sharedInstance] getResource:resource forAccount:account withParameters:nil responseBlock:^(id responseObject, NSError *error) {
-        [CKLCampfireAPI processResponseObject:responseObject ofType:[CKLCampfireRoom class] key:@"room" idKey:@"roomID" multiple:multiple error:error processBlock:^(CKLCampfireRoom *room) {
+    [[self sharedInstance] getResource:resource forAccount:account withParameters:nil responseBlock:^(id responseObject, NSError *error) {
+        [self processResponseObject:responseObject ofType:[CKLCampfireRoom class] key:@"room" idKey:@"roomID" multiple:multiple error:error processBlock:^(CKLCampfireRoom *room) {
             room.viewingAccount = account;
         } responseBlock:responseBlock];
     }];
@@ -109,7 +109,7 @@
 
 + (void)_postResource:(NSString *)resource forRoom:(CKLCampfireRoom *)room responseBlock:(CKLCampfireAPIErrorBlock)responseBlock
 {
-    [[CKLCampfireAPI sharedInstance] postResource:resource forAccount:room.viewingAccount withParameters:nil responseBlock:^(id responseObject, NSError *error) {
+    [[self sharedInstance] postResource:resource forAccount:room.viewingAccount withParameters:nil responseBlock:^(id responseObject, NSError *error) {
         responseBlock(error);
     }];
 }

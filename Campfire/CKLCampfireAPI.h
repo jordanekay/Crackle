@@ -32,7 +32,6 @@ extern NSString *CKLCampfireAPIAccessTokenKey;
 
 @interface CKLCampfireAPI : NSObject
 
-+ (instancetype)sharedInstance;
 + (NSValueTransformer *)dateTransformer;
 + (NSValueTransformer *)streamingDateTransformer;
 

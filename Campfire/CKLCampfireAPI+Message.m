@@ -66,7 +66,7 @@
 + (void)streamMessagesInRoom:(CKLCampfireRoom *)room responseBlock:(CKLCampfireAPIMessageResponseBlock)responseBlock
 {
     NSString *resource = [NSString stringWithFormat:CAMPFIRE_API_ROOM_ROOMID_LIVE, room.roomID];
-    [[CKLCampfireAPI sharedInstance] streamResource:resource forAccount:room.viewingAccount withParameters:nil responseBlock:^(id responseObject, NSError *error) {
+    [[self sharedInstance] streamResource:resource forAccount:room.viewingAccount withParameters:nil responseBlock:^(id responseObject, NSError *error) {
         if (responseBlock) {
             CKLCampfireMessage *message;
             if (responseObject) {
@@ -84,9 +84,9 @@
     NSDictionary *dictionary = [MTLJSONAdapter JSONDictionaryFromModel:message];
     NSDictionary *parameters = @{@"message": [dictionary dictionaryWithValuesForKeys:[CKLCampfireMessage postKeys]]};
 
-    [[CKLCampfireAPI sharedInstance] postResource:resource forAccount:room.viewingAccount withParameters:parameters responseBlock:^(id responseObject, NSError *error) {
+    [[self sharedInstance] postResource:resource forAccount:room.viewingAccount withParameters:parameters responseBlock:^(id responseObject, NSError *error) {
         if (responseBlock) {
-            [CKLCampfireAPI processResponseObject:responseObject ofType:[CKLCampfireMessage class] error:error processBlock:^(CKLCampfireMessage *object) {
+            [self processResponseObject:responseObject ofType:[CKLCampfireMessage class] error:error processBlock:^(CKLCampfireMessage *object) {
                 message.room = room;
             } responseBlock:responseBlock];
         }
@@ -98,7 +98,7 @@
     NSString *resource = [NSString stringWithFormat:CAMPFIRE_API_MESSAGES_MESSAGEID_STAR, message.messageID];
     if (!message.starred) {
         message.starred = YES;
-        [[CKLCampfireAPI sharedInstance] postResource:resource forAccount:message.viewingAccount withParameters:nil responseBlock:^(id responseObject, NSError *error) {
+        [[self sharedInstance] postResource:resource forAccount:message.viewingAccount withParameters:nil responseBlock:^(id responseObject, NSError *error) {
             if (error) {
                 message.starred = NO;
             }
@@ -106,7 +106,7 @@
         }];
     } else {
         message.starred = NO;
-        [[CKLCampfireAPI sharedInstance] deleteResource:resource forAccount:message.viewingAccount withParameters:nil responseBlock:^(id responseObject, NSError *error) {
+        [[self sharedInstance] deleteResource:resource forAccount:message.viewingAccount withParameters:nil responseBlock:^(id responseObject, NSError *error) {
             if (error) {
                 message.starred = YES;
             }
@@ -123,8 +123,8 @@
 + (void)_getMessagesForResource:(NSString *)resource account:(CKLCampfireAuthorizedAccount *)account room:(CKLCampfireRoom *)room parameters:(NSDictionary *)parameters responseBlock:(CKLCampfireAPIArrayResponseBlock)responseBlock
 {
     if (room.users || !room) {
-        [[CKLCampfireAPI sharedInstance] getResource:resource forAccount:account withParameters:parameters responseBlock:^(id responseObject, NSError *error) {
-            [CKLCampfireAPI processResponseObject:responseObject ofType:[CKLCampfireMessage class] key:@"message" idKey:@"messageID" multiple:YES error:error processBlock:^(CKLCampfireMessage *message) {
+        [[self sharedInstance] getResource:resource forAccount:account withParameters:parameters responseBlock:^(id responseObject, NSError *error) {
+            [self processResponseObject:responseObject ofType:[CKLCampfireMessage class] key:@"message" idKey:@"messageID" multiple:YES error:error processBlock:^(CKLCampfireMessage *message) {
                 message.viewingAccount = account;
                 message.room = room;
             } responseBlock:responseBlock];

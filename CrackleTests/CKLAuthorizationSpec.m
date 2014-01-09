@@ -9,6 +9,7 @@
 #import <Kiwi/Kiwi.h>
 #import "CKLCampfireAPI.h"
 #import "CKLCampfireAPI+Endpoints.h"
+#import "CKLCampfireAPI+Private.h"
 #import "CKLCampfireAccount.h"
 #import "CKLSpecHelpers.h"
 
