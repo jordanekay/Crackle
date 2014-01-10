@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Jordan Kay. All rights reserved.
 //
 
-#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import <XMLDictionary/XMLDictionary.h>
 #import "CKLCampfireAccount.h"
