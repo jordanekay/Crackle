@@ -7,6 +7,7 @@
 //
 
 #import <Mantle/MTLValueTransformer.h>
+#import "CKLCampfireAPI+Private.h"
 #import "CKLCampfireRoom.h"
 #import "CKLCampfireUser.h"
 
@@ -55,7 +56,8 @@
         }
         NSMutableArray *users = [NSMutableArray arrayWithCapacity:[dictionaries count]];
         for (NSDictionary *dictionary in dictionaries) {
-            CKLCampfireUser *user = [MTLJSONAdapter modelOfClass:[CKLCampfireUser class] fromJSONDictionary:dictionary error:nil];
+            Class class = [CKLCampfireAPI subclassForModelClass:[CKLCampfireUser class]];
+            CKLCampfireUser *user = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:dictionary error:nil];
             [users addObject:user];
         }
         return users;

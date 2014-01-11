@@ -13,6 +13,14 @@
 #import "CKLCampfireUser.h"
 #import "CKLSpecHelpers.h"
 
+@interface CKLCampfireRoomSubclass : CKLCampfireRoom
+
+@end
+
+@implementation CKLCampfireRoomSubclass
+
+@end
+
 SPEC_BEGIN(CKLRoomSpec)
 
 describe(@"The API instance", ^{
@@ -195,6 +203,18 @@ describe(@"The API instance", ^{
                 }];
                 [[expectFutureValue(theValue(room.locked)) shouldEventually] equal:theValue(YES)];
             });
+        });
+    });
+    context(@"when registering to use a subclass for rooms", ^{
+        beforeAll(^{
+            [CKLCampfireAPI registerSubclass:[CKLCampfireRoomSubclass class] forModelClass:[CKLCampfireRoom class]];
+        });
+        it(@"should use that subclass", ^{
+            __block NSSet *classes;
+            [CKLCampfireAPI getVisibleRoomsForAccount:account responseBlock:^(NSArray *array, NSError *error) {
+                classes = [NSSet setWithArray:[array valueForKeyPath:@"class"]];
+            }];
+            [[expectFutureValue([classes allObjects]) shouldEventually] equal:@[[CKLCampfireRoomSubclass class]]];
         });
     });
 });

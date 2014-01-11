@@ -9,6 +9,7 @@
 #import <Mantle/MTLValueTransformer.h>
 #import <Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h>
 #import "CKLCampfireAPI.h"
+#import "CKLCampfireAPI+Private.h"
 #import "CKLCampfireMessage.h"
 #import "CKLCampfireRoom.h"
 #import "CKLCampfireTweet.h"
@@ -133,7 +134,8 @@
 + (NSValueTransformer *)tweetJSONTransformer
 {
     return [MTLValueTransformer transformerWithBlock:^(NSDictionary *dictionary) {
-        return [MTLJSONAdapter modelOfClass:[CKLCampfireTweet class] fromJSONDictionary:dictionary error:nil];
+        Class class = [CKLCampfireAPI subclassForModelClass:[CKLCampfireTweet class]];
+        return [MTLJSONAdapter modelOfClass:class fromJSONDictionary:dictionary error:nil];
     }];
 }
 

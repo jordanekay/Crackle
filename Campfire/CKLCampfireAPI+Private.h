@@ -13,6 +13,7 @@
 @interface CKLCampfireAPI (Private)
 
 + (instancetype)sharedInstance;
++ (Class)subclassForModelClass:(Class)class;
 
 + (void)processResponseObject:(id)responseObject ofType:(Class)type error:(NSError *)error processBlock:(CKLCampfireAPIProcessBlock)processBlock responseBlock:(CKLCampfireAPIResponseBlock)responseBlock;
 + (void)processResponseObject:(id)responseObject ofType:(Class)type key:(NSString *)key idKey:(NSString *)idKey multiple:(BOOL)multiple error:(NSError *)error processBlock:(CKLCampfireAPIProcessBlock)processBlock responseBlock:(CKLCampfireAPIResponseBlock)responseBlock;

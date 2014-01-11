@@ -70,7 +70,8 @@
         if (responseBlock) {
             CKLCampfireMessage *message;
             if (responseObject) {
-                message = [MTLJSONAdapter modelOfClass:[CKLCampfireStreamedMessage class] fromJSONDictionary:responseObject error:nil];
+                Class class = [self subclassForModelClass:[CKLCampfireStreamedMessage class]];
+                message = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:responseObject error:nil];
                 message.room = room;
             }
             responseBlock(message, error);

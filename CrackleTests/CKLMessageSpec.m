@@ -16,6 +16,14 @@
 
 #define TEST_MESSAGE_LIMIT 3
 
+@interface CKLCampfireMessageSubclass : CKLCampfireMessage
+
+@end
+
+@implementation CKLCampfireMessageSubclass
+
+@end
+
 SPEC_BEGIN(CKLMessageSpec)
 
 describe(@"The API instance", ^{
@@ -276,6 +284,32 @@ describe(@"The API instance", ^{
                     return;
                 }];
                 [[expectFutureValue(theValue(message.starred)) shouldEventually] equal:theValue(YES)];
+            });
+        });
+    });
+    context(@"when registering to use a subclass for messages", ^{
+        beforeEach(^{
+            [CKLCampfireAPI registerSubclass:[CKLCampfireMessageSubclass class] forModelClass:[CKLCampfireMessage class]];
+        });
+        context(@"after registering", ^{
+            it(@"should use that subclass", ^{
+                __block NSSet *classes;
+                [CKLCampfireAPI getRecentMessagesForRoom:room responseBlock:^(NSArray *array, NSError *error) {
+                    classes = [NSSet setWithArray:[array valueForKeyPath:@"class"]];
+                }];
+                [[expectFutureValue([classes allObjects]) shouldEventually] equal:@[[CKLCampfireMessageSubclass class]]];
+            });
+        });
+        context(@"after deregistering", ^{
+            beforeAll(^{
+                [CKLCampfireAPI deregisterSubclassForModelClass:[CKLCampfireMessage class]];
+            });
+            it(@"should not use that subclass", ^{
+                __block NSSet *classes;
+                [CKLCampfireAPI getRecentMessagesForRoom:room responseBlock:^(NSArray *array, NSError *error) {
+                    classes = [NSSet setWithArray:[array valueForKeyPath:@"class"]];
+                }];
+                [[expectFutureValue([classes allObjects]) shouldNotEventually] equal:@[[CKLCampfireMessageSubclass class]]];
             });
         });
     });

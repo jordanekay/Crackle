@@ -10,12 +10,15 @@
 #import <XMLDictionary/XMLDictionary.h>
 #import "CKLCampfireAccount.h"
 #import "CKLCampfireAPI.h"
+#import "CKLCampfireAPI+Private.h"
 
 #define CAMPFIRE_STREAMING_BASE_URL @"https://streaming.campfirenow.com"
 #define DATE_FORMAT_XML @"yyyy-MM-dd'T'HH:mm:ssZZZZ"
 #define DATE_FORMAT_JSON @"yyyy/MM/dd HH:mm:ss Z"
 
 typedef void (^CKLCampfireAPIStreamingResponseBlock)(NSData *data);
+
+static NSMutableDictionary *registeredSubclasses;
 
 @interface CKLCampfireAPIStreamingOperation : AFHTTPRequestOperation
 
@@ -38,6 +41,32 @@ typedef void (^CKLCampfireAPIStreamingResponseBlock)(NSData *data);
         sharedInstance = [[self alloc] init];
     });
     return sharedInstance;
+}
+
++ (void)registerSubclass:(Class)subclass forModelClass:(Class)class
+{
+    NSParameterAssert(subclass);
+    NSParameterAssert(class);
+
+    if ([subclass isSubclassOfClass:class]) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            registeredSubclasses = [NSMutableDictionary dictionary];
+        });
+        registeredSubclasses[(id<NSCopying>)class] = subclass;
+    }
+}
+
++ (void)deregisterSubclassForModelClass:(Class)class
+{
+    NSParameterAssert(class);
+    [registeredSubclasses removeObjectForKey:class];
+}
+
++ (Class)subclassForModelClass:(Class)class
+{
+    NSParameterAssert(class);
+    return registeredSubclasses[(id<NSCopying>)class] ?: class;
 }
 
 + (NSValueTransformer *)dateTransformer
@@ -72,7 +101,8 @@ typedef void (^CKLCampfireAPIStreamingResponseBlock)(NSData *data);
 {
     NSObject *object;
     if (responseObject) {
-        object = [MTLJSONAdapter modelOfClass:type fromJSONDictionary:responseObject error:nil];
+        Class class = [self subclassForModelClass:type];
+        object = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:responseObject error:nil];
         if (processBlock) {
             processBlock(object);
         }
@@ -93,7 +123,8 @@ typedef void (^CKLCampfireAPIStreamingResponseBlock)(NSData *data);
 
         NSMutableArray *objects = [NSMutableArray arrayWithCapacity:[array count]];
         for (NSDictionary *dictionary in array) {
-            NSObject *object = [MTLJSONAdapter modelOfClass:type fromJSONDictionary:dictionary error:nil];
+            Class class = [self subclassForModelClass:type];
+            NSObject *object = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:dictionary error:nil];
             if ([object valueForKey:idKey]) {
                 if (processBlock) {
                     processBlock(object);

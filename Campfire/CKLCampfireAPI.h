@@ -32,6 +32,9 @@ extern NSString *CKLCampfireAPIAccessTokenKey;
 
 @interface CKLCampfireAPI : NSObject
 
++ (void)registerSubclass:(Class)subclass forModelClass:(Class)class;
++ (void)deregisterSubclassForModelClass:(Class)class;
+
 + (NSValueTransformer *)dateTransformer;
 + (NSValueTransformer *)streamingDateTransformer;
 

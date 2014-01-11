@@ -14,6 +14,14 @@
 #import "CKLCampfireUpload.h"
 #import "CKLSpecHelpers.h"
 
+@interface CKLCampfireUploadSubclass : CKLCampfireUpload
+
+@end
+
+@implementation CKLCampfireUploadSubclass
+
+@end
+
 SPEC_BEGIN(CKLUploadSpec)
 
 describe(@"The API instance", ^{
@@ -109,6 +117,18 @@ describe(@"The API instance", ^{
                 }];
                 [[expectFutureValue(fetchedUpload) shouldEventually] equal:[uploads firstObject]];
             });
+        });
+    });
+    context(@"when registering to use a subclass for uploads", ^{
+        beforeAll(^{
+            [CKLCampfireAPI registerSubclass:[CKLCampfireUploadSubclass class] forModelClass:[CKLCampfireUpload class]];
+        });
+        it(@"should use that subclass", ^{
+            __block NSSet *classes;
+            [CKLCampfireAPI getRecentUploadsForRoom:room responseBlock:^(NSArray *array, NSError *error) {
+                classes = [NSSet setWithArray:[array valueForKeyPath:@"class"]];
+            }];
+            [[expectFutureValue([classes allObjects]) shouldEventually] equal:@[[CKLCampfireUploadSubclass class]]];
         });
     });
 });
