@@ -125,8 +125,14 @@ static NSMutableDictionary *registeredSubclasses;
         for (NSDictionary *dictionary in array) {
             Class class = [self subclassForModelClass:type];
             NSObject *object = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:dictionary error:nil];
-            if ([object valueForKey:idKey]) {
-                if (processBlock) {
+            NSString *objectID = [object valueForKey:idKey];
+            if (objectID) {
+                if ([object conformsToProtocol:@protocol(CKLCampfireAPICacheable)]) {
+                    id<CKLCampfireAPICacheable> cachedObject = [type cachedObjectWithID:objectID];
+                    if (cachedObject) {
+                        object = cachedObject;
+                    }
+                } else if (processBlock) {
                     processBlock(object);
                 }
                 [objects addObject:object];
