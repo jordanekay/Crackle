@@ -44,12 +44,6 @@ extern NSString *CKLCampfireAPIAccessTokenKey;
 
 @end
 
-@protocol CKLCampfireAPICacheable <NSObject>
-
-+ (id<CKLCampfireAPICacheable>)cachedObjectWithID:(NSString *)objectID;
-
-@end
-
 @interface CKLCampfireAPI (Account)
 
 + (void)getInfoForAccount:(CKLCampfireAuthorizedAccount *)account responseBlock:(CKLCampfireAPIAccountResponseBlock)responseBlock;

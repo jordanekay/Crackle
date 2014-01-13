@@ -11,6 +11,7 @@
 #import "CKLCampfireAccount.h"
 #import "CKLCampfireAPI.h"
 #import "CKLCampfireAPI+Private.h"
+#import "CKLCampfireAPICacheable.h"
 
 #define CAMPFIRE_STREAMING_BASE_URL @"https://streaming.campfirenow.com"
 #define DATE_FORMAT_XML @"yyyy-MM-dd'T'HH:mm:ssZZZZ"

@@ -74,6 +74,7 @@
 		454FBC531877500F00EEEB31 /* NSString+CKLURLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CKLURLExtensions.h"; path = "Extensions/NSString+CKLURLExtensions.h"; sourceTree = "<group>"; };
 		454FBC541877500F00EEEB31 /* NSString+CKLURLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CKLURLExtensions.m"; path = "Extensions/NSString+CKLURLExtensions.m"; sourceTree = "<group>"; };
 		454FBC5B18776C4000EEEB31 /* CKLMessageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKLMessageSpec.m; sourceTree = "<group>"; };
+		45892085188445AB001EC015 /* CKLCampfireAPICacheable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CKLCampfireAPICacheable.h; path = Campfire/CKLCampfireAPICacheable.h; sourceTree = "<group>"; };
 		458DE0A6186B6D9C00859047 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		458DE0A9186B714400859047 /* CKLCampfireAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKLCampfireAPI.h; path = Campfire/CKLCampfireAPI.h; sourceTree = "<group>"; };
 		458DE0AA186B714400859047 /* CKLCampfireAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKLCampfireAPI.m; path = Campfire/CKLCampfireAPI.m; sourceTree = "<group>"; };
@@ -194,6 +195,7 @@
 				458DE0AA186B714400859047 /* CKLCampfireAPI.m */,
 				458DE0CA186C9CF400859047 /* CKLCampfireAPI+Endpoints.h */,
 				458DE0CB186C9CF400859047 /* CKLCampfireAPI+Private.h */,
+				45892085188445AB001EC015 /* CKLCampfireAPICacheable.h */,
 				458DE0BF186BEED500859047 /* Account */,
 				458DE0AF186B729300859047 /* Authorization */,
 				458DE0D3186CB13800859047 /* Messages */,
