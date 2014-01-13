@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Jordan Kay. All rights reserved.
 //
 
-#import <Mantle/MTLModel.h>
-#import <Mantle/MTLJSONAdapter.h>
+#import "CKLCampfireAPI.h"
 
 typedef NS_ENUM(NSUInteger, CKLCampfireUserType) {
     CKLCampfireUserTypeMember,

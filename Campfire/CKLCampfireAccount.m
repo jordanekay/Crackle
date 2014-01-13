@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Jordan Kay. All rights reserved.
 //
 
-#import <Mantle/MTLValueTransformer.h>
 #import "CKLCampfireAccount.h"
 #import "CKLCampfireAPI.h"
 

@@ -6,9 +6,6 @@
 //  Copyright (c) 2013 Jordan Kay. All rights reserved.
 //
 
-#import <Mantle/MTLValueTransformer.h>
-#import <Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h>
-#import "CKLCampfireAPI.h"
 #import "CKLCampfireTweet.h"
 
 @implementation CKLCampfireTweet
