@@ -32,6 +32,7 @@ typedef void (^CKLCampfireAPIUploadResponseBlock)(CKLCampfireUpload *upload, NSE
 typedef void (^CKLCampfireAPIUserResponseBlock)(CKLCampfireUser *user, NSError *error);
 
 extern NSString *CKLCampfireAPIDidAuthorizeAccountNotification;
+extern NSString *CKLCampfireAPIDidAuthorizeAccountsNotification;
 extern NSString *CKLCampfireAPIAccessTokenKey;
 
 @interface CKLCampfireAPI : NSObject

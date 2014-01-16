@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>566179A4-CC4C-44B7-9E8D-0D2DAC8D52A6</string>
+	<string>1F038712-53E8-454D-BA96-5D8A3394463A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Crackle</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6C5E1371-1612-45BF-9F1C-70BE976DDAF4</key>
-		<string>https://github.com/jordanekay/Crackle.git</string>
+		<key>D42240C2-DDA0-4FF1-BE80-0F21281FCBA3</key>
+		<string>ssh://github.com/bkenny/Crackle.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Crackle.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6C5E1371-1612-45BF-9F1C-70BE976DDAF4</key>
+		<key>D42240C2-DDA0-4FF1-BE80-0F21281FCBA3</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/jordanekay/Crackle.git</string>
+	<string>ssh://github.com/bkenny/Crackle.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6C5E1371-1612-45BF-9F1C-70BE976DDAF4</string>
+	<string>D42240C2-DDA0-4FF1-BE80-0F21281FCBA3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6C5E1371-1612-45BF-9F1C-70BE976DDAF4</string>
+			<string>D42240C2-DDA0-4FF1-BE80-0F21281FCBA3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Crackle</string>
 		</dict>

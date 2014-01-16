@@ -37,6 +37,7 @@
 {
     [CKLCampfireAPI setClientID:CLIENT_ID secret:CLIENT_SECRET redirectURI:REDIRECT_URI];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_didAuthorizeAccount:) name:CKLCampfireAPIDidAuthorizeAccountNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_didAuthorizeAccounts:) name:CKLCampfireAPIDidAuthorizeAccountsNotification object:nil];
 
     CGRect frame = self.window.bounds;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
@@ -51,9 +52,17 @@
 - (void)_didAuthorizeAccount:(NSNotification *)notification
 {
     CKLCampfireAuthorizedAccount *account = (CKLCampfireAuthorizedAccount *)notification.object;
-
+    
     [_webView removeFromSuperview];
     [self _makeAPICallsWithAccount:account];
+}
+
+- (void)_didAuthorizeAccounts:(NSNotification *)notification
+{
+    NSArray *accounts = notification.object;
+    NSLog(@"Authorized %d accounts", [accounts count]);
+    
+    [_webView removeFromSuperview];
 }
 
 - (void)_makeAPICallsWithAccount:(CKLCampfireAuthorizedAccount *)account
