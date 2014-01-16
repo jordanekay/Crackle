@@ -29,6 +29,7 @@ static NSString *redirectURI;
 
 NSString *CKLCampfireAPIAccessTokenKey = @"CKLCampfireAPIAccessTokenKey";
 NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAuthorizeAccountNotification";
+NSString *CKLCampfireAPIDidAuthorizeAccountsNotification = @"CKLCampfireAPIDidAuthorizeAccountsNotification";
 
 @interface CKLCampfireToken () <MTLJSONSerializing, NSSecureCoding>
 
@@ -165,6 +166,7 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
             account.accessToken = token;
             [self _finishAuthorizationForAccount:account];
         }
+        [self _finishedAuthorisingAccounts:accounts];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Authorization failed: %@", error.localizedDescription);
     }];
@@ -178,6 +180,14 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
             [[NSNotificationCenter defaultCenter] postNotificationName:CKLCampfireAPIDidAuthorizeAccountNotification object:account];
         }
     }];
+}
+
+- (void)_finishedAuthorisingAccounts:(NSArray *)accounts {
+    if ([accounts count] > 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CKLCampfireAPIDidAuthorizeAccountsNotification object:accounts];
+    } else {
+        NSLog(@"No accounts authorized");
+    }
 }
 
 #pragma mark - UIWebViewDelegate

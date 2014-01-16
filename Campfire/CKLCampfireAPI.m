@@ -293,6 +293,7 @@ NSDictionary *authenticatedParameters(NSDictionary *parameters, CKLCampfireAccou
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:CKLCampfireAPIDidAuthorizeAccountNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:CKLCampfireAPIDidAuthorizeAccountsNotification];
 }
 
 @end
