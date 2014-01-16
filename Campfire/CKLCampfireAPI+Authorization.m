@@ -160,9 +160,11 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFXMLParserResponseSerializer new];
     [manager GET:authorizationPath parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        CKLCampfireAuthorizedAccount *account = [MTLJSONAdapter modelOfClass:[CKLCampfireAuthorizedAccount class] fromJSONDictionary:[NSDictionary dictionaryWithXMLData:operation.responseData] error:nil];
-        account.accessToken = token;
-        [self _finishAuthorizationForAccount:account];
+        NSArray *accounts = [CKLCampfireAuthorizedAccount accountsFromAuthorizationDictionary:[NSDictionary dictionaryWithXMLData:operation.responseData]];
+        for (CKLCampfireAuthorizedAccount *account in accounts) {
+            account.accessToken = token;
+            [self _finishAuthorizationForAccount:account];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Authorization failed: %@", error.localizedDescription);
     }];

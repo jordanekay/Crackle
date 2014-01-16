@@ -64,35 +64,29 @@
 
 @implementation CKLCampfireAuthorizedAccount
 
-+ (NSValueTransformer *)organizationJSONTransformer
++ (NSArray *)accountsFromAuthorizationDictionary:(NSDictionary * )dictionary
 {
-    return [MTLValueTransformer transformerWithBlock:^(NSArray *accounts) {
-        NSDictionary *account = campfireAccountFromAccounts(accounts);
-        return account[@"_name"];
-    }];
+    NSArray *accountDictionaries = dictionary[@"accounts"][@"account"];
+    NSMutableArray *accounts = [NSMutableArray arrayWithCapacity:[accountDictionaries count]];
+    for (NSDictionary *accountDictionary in accountDictionaries) {
+        if ([accountDictionary[@"_product"] isEqualToString:@"campfire"]) {
+            NSMutableDictionary *mutableDictionary = [dictionary mutableCopy];
+            [mutableDictionary removeObjectForKey:@"accounts"];
+            mutableDictionary[@"organization"] = accountDictionary[@"_name"];
+            mutableDictionary[@"organizationURL"] = accountDictionary[@"_href"];
+
+            CKLCampfireAuthorizedAccount *account = [MTLJSONAdapter modelOfClass:[CKLCampfireAuthorizedAccount class] fromJSONDictionary:mutableDictionary error:nil];
+            [accounts addObject:account];
+        }
+    }
+    return accounts;
 }
 
 + (NSValueTransformer *)organizationURLJSONTransformer
 {
-    return [MTLValueTransformer transformerWithBlock:^(NSArray *accounts) {
-        NSDictionary *account = campfireAccountFromAccounts(accounts);
-        return [NSURL URLWithString:account[@"_href"]];
+    return [MTLValueTransformer transformerWithBlock:^(NSString *string) {
+        return [NSURL URLWithString:string];
     }];
-}
-
-NSDictionary *campfireAccountFromAccounts(NSArray *accounts)
-{
-    __block NSDictionary *campfireAccount;
-    if (![accounts isKindOfClass:[NSArray class]]) {
-        accounts = @[accounts];
-    }
-    [accounts enumerateObjectsUsingBlock:^(NSDictionary *account, NSUInteger idx, BOOL *stop) {
-        if ([account[@"_product"] isEqualToString:@"campfire"]) {
-            campfireAccount = account;
-            *stop = YES;
-        }
-    }];
-    return campfireAccount;
 }
 
 #pragma mark - MTLJSONSerializing
@@ -104,8 +98,6 @@ NSDictionary *campfireAccountFromAccounts(NSArray *accounts)
         @"firstName": @"identity._first_name",
         @"lastName": @"identity._last_name",
         @"emailAddress": @"identity._email_address",
-        @"organization": @"accounts.account",
-        @"organizationURL": @"accounts.account"
     };
 }
 

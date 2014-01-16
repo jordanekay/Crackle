@@ -39,6 +39,8 @@ typedef NS_ENUM(NSUInteger, CKLCampfireAccountPlan) {
 
 @interface CKLCampfireAuthorizedAccount : CKLCampfireAccount
 
++ (NSArray *)accountsFromAuthorizationDictionary:(NSDictionary * )dictionary;
+
 @property (nonatomic, copy, readonly) NSString *firstName;
 @property (nonatomic, copy, readonly) NSString *lastName;
 @property (nonatomic, copy, readonly) NSString *emailAddress;
