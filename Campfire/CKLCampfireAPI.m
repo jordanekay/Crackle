@@ -129,7 +129,7 @@ static NSMutableDictionary *registeredSubclasses;
             NSString *objectID = [object valueForKey:idKey];
             if (objectID) {
                 if ([object conformsToProtocol:@protocol(CKLCampfireAPICacheable)]) {
-                    id<CKLCampfireAPICacheable> cachedObject = [type cachedObjectWithID:objectID];
+                    id<CKLCampfireAPICacheable> cachedObject = [class cachedObjectWithID:objectID];
                     if (cachedObject) {
                         object = cachedObject;
                     }
