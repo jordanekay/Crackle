@@ -16,7 +16,8 @@
 #import "CKLCampfireAPI+Private.h"
 #import "NSString+CKLURLExtensions.h"
 
-#define AUTHORIZATION_URL @"https://launchpad.37signals.com/authorization/"
+#define AUTHORIZATION_URL_FORMAT @"https://%@/authorization/"
+#define AUTHORIZATION_DOMAIN @"launchpad.37signals.com"
 #define QUERY_STRING @"type=web_server&client_id=%@&redirect_uri=%@"
 #define ACCESS_TOKEN_QUERY_STRING @"client_secret=%@&code=%@"
 
@@ -111,13 +112,15 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
 
 + (NSURLRequest *)authorizeWithWebView:(UIWebView *)webView
 {
-    NSString *authURLFormat = [AUTHORIZATION_URL stringByAppendingFormat:@"%@?%@", REQUEST_TOKEN_PATH, QUERY_STRING];
+    NSString *authURLFormat = [[NSString stringWithFormat:AUTHORIZATION_URL_FORMAT, AUTHORIZATION_DOMAIN] stringByAppendingFormat:@"%@?%@", REQUEST_TOKEN_PATH, QUERY_STRING];
     NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:authURLFormat, clientID, redirectURI]];
-    NSURLRequest *authRequest = [NSURLRequest requestWithURL:authURL];
+    NSMutableURLRequest *authRequest = [NSMutableURLRequest requestWithURL:authURL];
 
     if (!webView.delegate) {
         webView.delegate = [self sharedInstance];
     }
+
+    [self _removeAuthorizationCookie];
     [webView loadRequest:authRequest];
     return authRequest;
 }
@@ -134,9 +137,20 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
     redirectURI = [uri copy];
 }
 
++ (void)_removeAuthorizationCookie
+{
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        if ([cookie.domain isEqualToString:AUTHORIZATION_DOMAIN]) {
+            [storage deleteCookie:cookie];
+        }
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)_getAccessTokenWithVerificationCode:(NSString *)code
 {
-    NSString *accessTokenURLString = [AUTHORIZATION_URL stringByAppendingString:ACCESS_TOKEN_PATH];
+    NSString *accessTokenURLString = [[NSString stringWithFormat:AUTHORIZATION_URL_FORMAT, AUTHORIZATION_DOMAIN] stringByAppendingString:ACCESS_TOKEN_PATH];
     NSString *queryStringFormat = [NSString stringWithFormat:@"%@&%@", QUERY_STRING, ACCESS_TOKEN_QUERY_STRING];
     NSString *queryString = [NSString stringWithFormat:queryStringFormat, clientID, redirectURI, clientSecret, code];
     NSDictionary *parameters = [queryString ckl_queryParameters];
@@ -151,7 +165,8 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
 
 - (void)_setupAccountWithToken:(CKLCampfireToken *)token
 {
-    NSString *authorizationPath = [[AUTHORIZATION_URL substringToIndex:[AUTHORIZATION_URL length] - 1] stringByAppendingString:@".xml"];
+    NSString *authURLString = [NSString stringWithFormat:AUTHORIZATION_URL_FORMAT, AUTHORIZATION_DOMAIN];
+    NSString *authorizationPath = [[authURLString substringToIndex:[authURLString length] - 1] stringByAppendingString:@".xml"];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     if (token.accessTokenString) {
         parameters[@"access_token"] = token.accessTokenString;
