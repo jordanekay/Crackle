@@ -67,6 +67,10 @@
 + (NSArray *)accountsFromAuthorizationDictionary:(NSDictionary * )dictionary
 {
     NSArray *accountDictionaries = dictionary[@"accounts"][@"account"];
+    if (![accountDictionaries isKindOfClass:[NSArray class]]) {
+        accountDictionaries = @[accountDictionaries];
+    }
+
     NSMutableArray *accounts = [NSMutableArray arrayWithCapacity:[accountDictionaries count]];
     for (NSDictionary *accountDictionary in accountDictionaries) {
         if ([accountDictionary[@"_product"] isEqualToString:@"campfire"]) {
