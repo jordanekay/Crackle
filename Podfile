@@ -6,5 +6,5 @@ pod 'Mantle'
 pod 'OHHTTPStubs'
 pod 'XMLDictionary'
 target :CrackleTests, :exclusive => true do
-  pod 'Kiwi/XCTest', :git => 'https://github.com/epologee/Kiwi.git'
+  pod 'Kiwi/XCTest', :git => 'https://github.com/jordanekay/Kiwi.git'
 end

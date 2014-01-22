@@ -54,6 +54,16 @@ static dispatch_group_t url_request_operation_completion_group() {
     return af_url_request_operation_completion_group;
 }
 
+static dispatch_queue_t url_request_operation_completion_queue() {
+    static dispatch_queue_t af_url_request_operation_completion_queue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        af_url_request_operation_completion_queue = dispatch_queue_create("com.alamofire.networking.operation.queue", DISPATCH_QUEUE_CONCURRENT );
+    });
+
+    return af_url_request_operation_completion_queue;
+}
+
 static NSString * const kAFNetworkingLockName = @"com.alamofire.networking.operation.lock";
 
 NSString * const AFNetworkingErrorDomain = @"AFNetworkingErrorDomain";
@@ -114,7 +124,6 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 
 @interface AFURLConnectionOperation ()
 @property (readwrite, nonatomic, assign) AFOperationState state;
-@property (readwrite, nonatomic, assign, getter = isCancelled) BOOL cancelled;
 @property (readwrite, nonatomic, strong) NSRecursiveLock *lock;
 @property (readwrite, nonatomic, strong) NSURLConnection *connection;
 @property (readwrite, nonatomic, strong) NSURLRequest *request;
@@ -221,7 +230,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
                 block();
             });
 
-            dispatch_group_notify(group, queue, ^{
+            dispatch_group_notify(group, url_request_operation_completion_queue(), ^{
                 [strongSelf setCompletionBlock:nil];
             });
         }];
@@ -411,7 +420,9 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 
 - (void)start {
     [self.lock lock];
-    if ([self isReady]) {
+    if ([self isCancelled]) {
+        [self performSelector:@selector(cancelConnection) onThread:[[self class] networkRequestThread] withObject:nil waitUntilDone:NO modes:[self.runLoopModes allObjects]];
+    } else if ([self isReady]) {
         self.state = AFOperationExecutingState;
         
         [self performSelector:@selector(operationDidStart) onThread:[[self class] networkRequestThread] withObject:nil waitUntilDone:NO modes:[self.runLoopModes allObjects]];
@@ -450,13 +461,11 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 - (void)cancel {
     [self.lock lock];
     if (![self isFinished] && ![self isCancelled]) {
-        [self willChangeValueForKey:@"isCancelled"];
-        _cancelled = YES;
         [super cancel];
-        [self didChangeValueForKey:@"isCancelled"];
-        
-        // Cancel the connection on the thread it runs on to prevent race conditions
-        [self performSelector:@selector(cancelConnection) onThread:[[self class] networkRequestThread] withObject:nil waitUntilDone:NO modes:[self.runLoopModes allObjects]];
+
+        if ([self isExecuting]) {
+            [self performSelector:@selector(cancelConnection) onThread:[[self class] networkRequestThread] withObject:nil waitUntilDone:NO modes:[self.runLoopModes allObjects]];
+        }
     }
     [self.lock unlock];
 }
@@ -488,9 +497,11 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 {
     if (!operations || [operations count] == 0) {
         return @[[NSBlockOperation blockOperationWithBlock:^{
-            if (completionBlock) {
-                completionBlock(@[]);
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completionBlock) {
+                    completionBlock(@[]);
+                }
+            });
         }]];
     }
 
@@ -548,7 +559,7 @@ willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challe
     }
 
     if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-        if ([self.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust]) {
+        if ([self.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:challenge.protectionSpace.host]) {
             NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
             [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
         } else {
@@ -687,7 +698,6 @@ didReceiveResponse:(NSURLResponse *)response
     }
     
     self.state = (AFOperationState)[decoder decodeIntegerForKey:NSStringFromSelector(@selector(state))];
-    self.cancelled = [decoder decodeBoolForKey:NSStringFromSelector(@selector(isCancelled))];
     self.response = [decoder decodeObjectForKey:NSStringFromSelector(@selector(response))];
     self.error = [decoder decodeObjectForKey:NSStringFromSelector(@selector(error))];
     self.responseData = [decoder decodeObjectForKey:NSStringFromSelector(@selector(responseData))];
@@ -711,7 +721,6 @@ didReceiveResponse:(NSURLResponse *)response
             break;
     }
     
-    [coder encodeBool:[self isCancelled] forKey:NSStringFromSelector(@selector(isCancelled))];
     [coder encodeObject:self.response forKey:NSStringFromSelector(@selector(response))];
     [coder encodeObject:self.error forKey:NSStringFromSelector(@selector(error))];
     [coder encodeObject:self.responseData forKey:NSStringFromSelector(@selector(responseData))];

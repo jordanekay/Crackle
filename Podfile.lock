@@ -1,37 +1,37 @@
 PODS:
-  - AFNetworking (2.0.3):
+  - AFNetworking (2.1.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.0.3):
+  - AFNetworking/NSURLConnection (2.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.0.3):
+  - AFNetworking/NSURLSession (2.1.0):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.0.3)
-  - AFNetworking/Security (2.0.3)
-  - AFNetworking/Serialization (2.0.3)
-  - AFNetworking/UIKit (2.0.3):
+  - AFNetworking/Reachability (2.1.0)
+  - AFNetworking/Security (2.1.0)
+  - AFNetworking/Serialization (2.1.0)
+  - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
   - Kiwi/ARC (2.2.3)
   - Kiwi/NonARC (2.2.3)
   - Kiwi/XCTest (2.2.3):
     - Kiwi/ARC
     - Kiwi/NonARC
-  - Lockbox (1.4.6)
+  - Lockbox (1.4.7)
   - Mantle (1.3.1):
     - Mantle/extobjc
   - Mantle/extobjc (1.3.1)
-  - OHHTTPStubs (3.0.3)
+  - OHHTTPStubs (3.1.0)
   - XMLDictionary (1.3)
 
 DEPENDENCIES:
   - AFNetworking
-  - Kiwi/XCTest (from `https://github.com/epologee/Kiwi.git`)
+  - Kiwi/XCTest (from `https://github.com/jordanekay/Kiwi.git`)
   - Lockbox (from `https://github.com/jordanekay/Lockbox.git`)
   - Mantle
   - OHHTTPStubs
@@ -39,16 +39,16 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   Kiwi:
-    :git: https://github.com/epologee/Kiwi.git
+    :git: https://github.com/jordanekay/Kiwi.git
   Lockbox:
     :git: https://github.com/jordanekay/Lockbox.git
 
 SPEC CHECKSUMS:
-  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
+  AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
-  Lockbox: 71f3100edcff1a70a8b6707cbf63b7096bbcb01d
+  Lockbox: 7007f39c273cf9617d03875391717af23a74e818
   Mantle: abc3b0c81bc66eb624cf9cebb8640e377d5a44ae
-  OHHTTPStubs: a2ffcd547c003680066cf427964e5ba67b37ed0c
+  OHHTTPStubs: d67c42c0212f0883ddb8592375aa0dc00dc50a36
   XMLDictionary: 27390d3517062694ccb307a7750250e1b687571d
 
 COCOAPODS: 0.28.0

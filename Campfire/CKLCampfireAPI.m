@@ -164,7 +164,7 @@ static NSMutableDictionary *registeredSubclasses;
     NSURL *url = [NSURL URLWithString:resource relativeToURL:[NSURL URLWithString:CAMPFIRE_STREAMING_BASE_URL]];
     AFHTTPRequestOperationManager *manager = [self _managerForAccount:account authorized:YES];
     AFHTTPRequestSerializer *serializer = manager.requestSerializer;
-    NSMutableURLRequest *request = [serializer requestWithMethod:@"GET" URLString:[url absoluteString] parameters:parameters];
+    NSMutableURLRequest *request = [serializer requestWithMethod:@"GET" URLString:[url absoluteString] parameters:parameters error:nil];
 
     CKLCampfireAPIStreamingOperation *operation = [CKLCampfireAPIStreamingOperation operationWithRequest:request manager:manager];
     operation.responseBlock = ^(NSData *data) {
