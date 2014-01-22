@@ -29,6 +29,7 @@ static NSString *clientSecret;
 static NSString *redirectURI;
 
 NSString *CKLCampfireAPIAccessTokenKey = @"CKLCampfireAPIAccessTokenKey";
+NSString *CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification = @"CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification";
 NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAuthorizeAccountNotification";
 
 @interface CKLCampfireToken () <MTLJSONSerializing, NSSecureCoding>
@@ -211,6 +212,11 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
     }
 
     return shouldStartLoad;
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification object:webView.request];
 }
 
 @end
