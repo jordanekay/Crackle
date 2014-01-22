@@ -196,18 +196,32 @@ NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAut
     }];
 }
 
+BOOL isValidAuthURL(NSURL *url)
+{
+    return [url.pathComponents count] > 1 && [url.absoluteString rangeOfString:@"(null)"].location == NSNotFound;
+}
+
+BOOL isForgotPasswordURL(NSURL *url)
+{
+    return [[url.pathComponents lastObject] isEqualToString:@"forgot_password"];
+}
+
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     BOOL shouldStartLoad = YES;
-    NSArray *parameters = [[[request URL] query] componentsSeparatedByString:@"="];
+    NSURL *url = request.URL;
+    NSArray *parameters = [[url query] componentsSeparatedByString:@"="];
 
-    if ([request.URL.absoluteString rangeOfString:@"(null)"].location != NSNotFound) {
+    if (!isValidAuthURL(url)) {
         shouldStartLoad = NO;
     } else if ([parameters count] == 2 && [parameters[0] isEqualToString:@"code"]) {
         NSString *code = parameters[1];
         [self _getAccessTokenWithVerificationCode:code];
+        shouldStartLoad = NO;
+    } else if (isForgotPasswordURL(url)) {
+        [[UIApplication sharedApplication] openURL:url];
         shouldStartLoad = NO;
     }
 
