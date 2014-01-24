@@ -29,6 +29,7 @@ static NSString *clientSecret;
 static NSString *redirectURI;
 
 NSString *CKLCampfireAPIAccessTokenKey = @"CKLCampfireAPIAccessTokenKey";
+NSString *CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification = @"CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification";
 NSString *CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification = @"CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification";
 NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAuthorizeAccountNotification";
 
@@ -226,6 +227,11 @@ BOOL isForgotPasswordURL(NSURL *url)
     }
 
     return shouldStartLoad;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification object:webView.request];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
