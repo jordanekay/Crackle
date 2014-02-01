@@ -231,12 +231,19 @@ BOOL isForgotPasswordURL(NSURL *url)
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification object:webView.request];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification object:webView.request];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 @end
