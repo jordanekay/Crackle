@@ -6,11 +6,7 @@
 //  Copyright (c) 2013 Jordan Kay. All rights reserved.
 //
 
-#ifdef COCOAPODS_POD_AVAILABLE_CrackedMantle
-#import <CrackedMantle/Mantle.h>
-#else
 #import <Mantle/Mantle.h>
-#endif
 #import "CKLCampfireAccount.h"
 
 @class CKLCampfireMessage;

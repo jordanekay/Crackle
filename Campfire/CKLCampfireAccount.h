@@ -6,13 +6,8 @@
 //  Copyright (c) 2013 Jordan Kay. All rights reserved.
 //
 
-#ifdef COCOAPODS_POD_AVAILABLE_CrackedMantle
-#import <CrackedMantle/MTLModel.h>
-#import <CrackedMantle/MTLJSONAdapter.h>
-#else
 #import <Mantle/MTLModel.h>
 #import <Mantle/MTLJSONAdapter.h>
-#endif
 
 @class CKLCampfireToken;
 
