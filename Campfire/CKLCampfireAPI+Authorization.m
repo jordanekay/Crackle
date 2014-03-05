@@ -31,6 +31,7 @@ static NSString *redirectURI;
 NSString *CKLCampfireAPIAccessTokenKey = @"CKLCampfireAPIAccessTokenKey";
 NSString *CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification = @"CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification";
 NSString *CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification = @"CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification";
+NSString *CKLCampfireAPIDidDenyAccessNotification = @"CKLCampfireAPIDidDenyAccessNotification";
 NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAuthorizeAccountNotification";
 
 @interface CKLCampfireToken () <MTLJSONSerializing, NSSecureCoding>
@@ -220,6 +221,9 @@ BOOL isForgotPasswordURL(NSURL *url)
     } else if ([parameters count] == 2 && [parameters[0] isEqualToString:@"code"]) {
         NSString *code = parameters[1];
         [self _getAccessTokenWithVerificationCode:code];
+        shouldStartLoad = NO;
+    } else if ([parameters count] == 2 && [parameters[1] isEqualToString:@"access_denied"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CKLCampfireAPIDidDenyAccessNotification object:request];
         shouldStartLoad = NO;
     } else if (isForgotPasswordURL(url)) {
         [[UIApplication sharedApplication] openURL:url];

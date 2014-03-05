@@ -30,6 +30,7 @@ typedef void (^CKLCampfireAPIUserResponseBlock)(CKLCampfireUser *user, NSError *
 extern NSString *CKLCampfireAPIAccessTokenKey;
 extern NSString *CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification;
 extern NSString *CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification;
+extern NSString *CKLCampfireAPIDidDenyAccessNotification;
 extern NSString *CKLCampfireAPIDidAuthorizeAccountNotification;
 
 @interface CKLCampfireAPI : NSObject
