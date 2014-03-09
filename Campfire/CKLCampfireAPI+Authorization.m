@@ -29,8 +29,10 @@ static NSString *clientSecret;
 static NSString *redirectURI;
 
 NSString *CKLCampfireAPIAccessTokenKey = @"CKLCampfireAPIAccessTokenKey";
+NSString *CKLCampfireAPIWebViewAuthorizationRequestErrorKey = @"CKLCampfireAPIWebViewAuthorizationRequestErrorKey";
 NSString *CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification = @"CKLCampfireAPIWebViewWillLoadAuthorizationRequestNotification";
 NSString *CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification = @"CKLCampfireAPIWebViewDidLoadAuthorizationRequestNotification";
+NSString *CKLCampfireAPIWebViewDidFailToLoadAuthorizationRequestNotification = @"CKLCampfireAPIWebViewDidFailToLoadAuthorizationRequestNotification";
 NSString *CKLCampfireAPIDidDenyAccessNotification = @"CKLCampfireAPIDidDenyAccessNotification";
 NSString *CKLCampfireAPIDidAuthorizeAccountNotification = @"CKLCampfireAPIDidAuthorizeAccountNotification";
 
@@ -248,6 +250,8 @@ BOOL isForgotPasswordURL(NSURL *url)
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    NSDictionary *userInfo = error ? @{CKLCampfireAPIWebViewAuthorizationRequestErrorKey: error} : nil;
+    [[NSNotificationCenter defaultCenter] postNotificationName:CKLCampfireAPIWebViewDidFailToLoadAuthorizationRequestNotification object:webView.request userInfo:userInfo];
 }
 
 @end
